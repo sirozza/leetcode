@@ -1,0 +1,1 @@
+start python -m nuitka --follow-imports --include-package=flet --onefile --remove-output --windows-disable-console --prefer-source-code --standalone --jobs=8 --windows-company-name=s.matviv@gmail.com --windows-product-version=17.06.1.23 --windows-icon-from-ico=.\icon.ico .\test001.py
