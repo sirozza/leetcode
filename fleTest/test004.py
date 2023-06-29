@@ -14,25 +14,23 @@ screen_height = screen_info.current_h
 screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)
 
 # Получение списка файлов в папке с фотографиями
-photos_folder = "pictures"
+photos_folder = 'pictures'
 photos = os.listdir(photos_folder)
 
 # Определение параметров бегущей строки
-font = pygame.font.Font(None, 150)
+font = pygame.font.Font(None, 200)
 text_color = (255, 255, 255)
 
 # Определение начальных координат бегущей строки
 x_pos = screen_width
-y_pos = 20
+y_pos = 500
 
 # Определение времени отображения каждого изображения (в секундах)
 display_time = 30
 start_time = time.time()
 
 # Определение скорости движения текста
-text_speed = 5
-
-clock = pygame.time.Clock()  # Создание объекта Clock для контроля обновления кадров
+text_speed = 30
 
 # Основной цикл игры
 running = True
@@ -61,15 +59,14 @@ while running:
     text_surface = font.render(photo_name, True, text_color)
     text_width, text_height = font.size(photo_name)
 
-    # Определение текущей позиции текста с помощью интерполяции
-    target_x = -text_width
-    x_pos = pygame.lerp(x_pos, target_x, 0.05)
-
     # Отображение бегущей строки
     screen.blit(text_surface, (x_pos, y_pos))
+    x_pos -= text_speed  # Изменение горизонтальной позиции для создания эффекта бегущей строки
+    if x_pos < -text_width:
+        x_pos = screen_width  # Возвращение бегущей строки в начальную позицию
 
     pygame.display.update()
-    clock.tick(60)  # Ограничение обновления кадров до 60 кадров в секунду
+    pygame.time.delay(1)  # Задержка для контроля скорости бегущей строки
 
     # Переключение на следующую фотографию
     elapsed_time = time.time() - start_time
