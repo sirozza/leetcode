@@ -1,5 +1,6 @@
 import flet as ft
 
+
 def main(page: ft.Page):
     page.title = "Images Example"
     page.theme_mode = ft.ThemeMode.LIGHT
@@ -28,5 +29,6 @@ def main(page: ft.Page):
             )
         )
     page.update()
+
 
 ft.app(target=main)

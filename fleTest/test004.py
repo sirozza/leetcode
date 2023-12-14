@@ -30,7 +30,7 @@ display_time = 30
 start_time = time.time()
 
 # Определение скорости движения текста
-text_speed = 30
+text_speed = 15
 
 # Основной цикл игры
 running = True
@@ -66,7 +66,7 @@ while running:
         x_pos = screen_width  # Возвращение бегущей строки в начальную позицию
 
     pygame.display.update()
-    pygame.time.delay(1)  # Задержка для контроля скорости бегущей строки
+    pygame.time.delay(5)  # Задержка для контроля скорости бегущей строки
 
     # Переключение на следующую фотографию
     elapsed_time = time.time() - start_time
