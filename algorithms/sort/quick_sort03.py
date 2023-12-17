@@ -1,5 +1,6 @@
 from random import randint
 
+
 def quicksort(a, fst, lst):
     if fst >= lst:
         return
@@ -16,7 +17,7 @@ def quicksort(a, fst, lst):
     quicksort(a, fst, j)
     quicksort(a, i, lst)
 
-a = [10, -2, 1, 5, 0, 25, 3, 4]
+a = [10, 3, 1, 5, 6, 25, 2, 4]
 
 quicksort(a, 0, len(a)-1)
 
