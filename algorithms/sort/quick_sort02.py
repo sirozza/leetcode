@@ -1,23 +1,24 @@
-from random import choice
+from random import choice, randint
 
+#s = [randint(0, 25) for i in range(10)]
 
-s = [3, 0, 7, 1, 5, 2]
+s = [4, 3, 3, 2, 1, 1, 3, 3]
 
 print(s)
 
 def quick_soft(s):
-    if len(s)<2:
+    if len(s) < 2:
         return s
     q = choice(s)
-    l, m, r = [], [], []
+    l, r, c = [], [], []
 
     for x in s:
-        if x <= q:
+        if x < q:
             l.append(x)
         elif x > q:
             r.append(x)
         else:
-            m.append(x)
-    return quick_soft(l) + m + quick_soft(r)
+            c.append(x)
+    return quick_soft(l) + c + quick_soft(r)
 
 print(quick_soft(s))
