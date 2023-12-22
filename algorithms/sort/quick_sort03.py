@@ -17,7 +17,7 @@ def quicksort(a, fst, lst):
     quicksort(a, fst, j)
     quicksort(a, i, lst)
 
-a = [10, 3, 1, 5, 6, 25, 2, 4]
+a = [3, 2, 1]
 
 quicksort(a, 0, len(a)-1)
 
