@@ -4,6 +4,7 @@ import statistics
 wb = xlrd.open_workbook(filename='salaries.xlsx')
 sheet_names = wb.sheet_names()
 sh = wb.sheet_by_name(sheet_names[0])
+
 city = [0, 0]
 for n in range(1, 9):
     if statistics.median(sh.row_values(n)[1:]) > city[1]:
@@ -11,14 +12,23 @@ for n in range(1, 9):
         city.insert(1, statistics.median(sh.row_values(n)[1:]))
 print(city[0])
 
-profLen = len(sh.row_values(0)[1:])
-
-prof = {}
+profLen = len(sh.row_values(0))-1
+cityLine = len(sh.col_values(0))
+print(sh.row_values(0))
+city_dict = {}
 
 for i in range(1, profLen):
-    prof.pop(sh.row_values(0)[i])
-    print(sh.row_values(0)[i])
-print(prof)
+    city_dict[i] = sh.row_values(i)[0]
+
+
+
+
+# for i in range(1, profLen):
+#     for j in range(1, cityLine):
+#         print(sh.col_values(i)[j:])
+
+
+
 # nmin = sh.row_values(6)[2]
 # print(nmin)
 # for rownum in range(7, 27):
