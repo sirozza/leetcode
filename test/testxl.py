@@ -30,6 +30,7 @@ max_pay_prof_city = []
 for i in range(1, profLen):
     max_pay_prof_city.append(sum(sh.row_values(i)[1:])/2)
 
+print(max_pay_prof_city.index(max(max_pay_prof_city)))
 
 #print(max(max_pay_prof_city))
 #print(prof_list[max_pay_prof_city.index(max(max_pay_prof_city))])
