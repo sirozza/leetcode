@@ -5,33 +5,37 @@ wb = xlrd.open_workbook(filename='salaries.xlsx')
 sheet_names = wb.sheet_names()
 sh = wb.sheet_by_name(sheet_names[0])
 
-city = [0, 0]
-for n in range(1, 9):
-    if statistics.median(sh.row_values(n)[1:]) > city[1]:
-        city.insert(0, sh.row_values(n)[0])
-        city.insert(1, statistics.median(sh.row_values(n)[1:]))
-print(city[0])
+profLen = len(sh.row_values(0))
 
-profLen = len(sh.row_values(0))-1
+
+
+city = [0, 0]
+for n in range(1, profLen):
+    if statistics.median(sorted(sh.row_values(n)[1:])) > city[1]:
+        city.insert(0, sh.row_values(n)[0])
+        city.insert(1, statistics.median(sorted(sh.row_values(n)[1:])))
+#print(city[0])
+
+profLen = len(sh.row_values(0))
+#print(profLen)
 cityLine = len(sh.col_values(0))
-print(sh.row_values(0))
-city_dict = {}
+#print(sh.row_values(1)[1:])
+city_list = sh.col_values(0)[1:]
+
+
+prof_list = sh.row_values(0)[1:]
+
+max_pay_prof_city = []
 
 for i in range(1, profLen):
-    city_dict[i] = sh.row_values(i)[0]
+    max_pay_prof_city.append(sum(sh.row_values(i)[1:])/2)
 
 
-
-
+#print(max(max_pay_prof_city))
+#print(prof_list[max_pay_prof_city.index(max(max_pay_prof_city))])
 # for i in range(1, profLen):
-#     for j in range(1, cityLine):
-#         print(sh.col_values(i)[j:])
-
-
-
-# nmin = sh.row_values(6)[2]
-# print(nmin)
-# for rownum in range(7, 27):
-#     temp = sh.row_values(rownum)
-#     nmin = min(nmin, temp[2])
-# print(nmin)
+#     print(sh.row_values(i)[1:])
+#     max_pay_prof_city.append(prof_list[(sh.row_values(i)[1:].index(max(sh.row_values(i)[1:])))])
+#     print(sh.row_values(i)[1:].index(max(sh.row_values(i)[1:])))
+#
+# print(max_pay_prof_city)
