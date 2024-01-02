@@ -4,12 +4,31 @@ import statistics
 wb = xlrd.open_workbook(filename='trekking1.xlsx')
 sn = wb.sheet_by_name('Справочник')
 
-prod = {}
+prod = []
 
 for i in range(1, len(sn.col_values(0)[1:])+1):
-    prod.update({sn.row_values(i)[0]: int(sn.row_values(i)[1])})
+    prod.append({'name':sn.row_values(i)[0], 'calor':(sn.row_values(i)[1])})
 
-print(sorted(prod))
+print(prod)
+
+d = {}
+
+#d.get()
+
+
+def get_data_for_sort(x):
+    return x['calor'], x['name']
+
+
+prod2 = sorted(prod, key=get_data_for_sort, reverse=True)
+
+for i in prod2:
+    print(i)
+
+print(len(prod2))
+
+for i in prod2:
+    print(i.get('name').strip())
 
 # def get_data_sort(x):
 #
