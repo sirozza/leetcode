@@ -64,5 +64,6 @@ def romanToInt(s: str) -> int:
             print(a)
 
     return res + roman[s[-1]]
+
 a = 'C'
 print(romanToInt(a))
