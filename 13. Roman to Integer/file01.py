@@ -55,15 +55,14 @@ def romanToInt(s: str) -> int:
         'M': 1000
     }
 
-    for a, b in zip(s, s[1:]):
-        if roman[a] < roman[b]:
-            res -= roman[a]
-            print(a)
+    for a in range(len(s)):
+        if a == len(s) - 1:
+            res += roman.get(s[a])
+        elif roman.get(s[a]) < roman.get(s[a + 1]):
+            res -= roman.get(s[a])
         else:
-            res += roman[a]
-            print(a)
-
-    return res + roman[s[-1]]
+            res += roman.get(s[a])
+    return res
 
 a = 'C'
 print(romanToInt(a))
