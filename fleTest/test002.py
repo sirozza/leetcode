@@ -13,7 +13,7 @@ def main(page: ft.Page):
         height=100,
         fit=ft.ImageFit.CONTAIN,
     )
-    images = ft.Row(expand=1, wrap=False, scroll="always")
+    images = ft.Row(expand=1, wrap=False, on_scroll="always")
 
     page.add(img, images)
 
@@ -31,4 +31,4 @@ def main(page: ft.Page):
     page.update()
 
 
-ft.app(target=main)
+ft.app(target=main, view=ft.FLET_APP, port=8080)

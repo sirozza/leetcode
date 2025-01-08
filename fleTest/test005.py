@@ -3,6 +3,7 @@ import os
 import time
 import tkinter as tk
 
+
 class ImageSlideshow:
     def __init__(self, root):
         self.root = root

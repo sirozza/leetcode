@@ -7,9 +7,11 @@ class Point:
         self.x = x
         self.y = y
 
+
 class Point2:
     x = 0
     y = 0
+
 
 pt = Point()
 pt.set_coords(1, 3)
